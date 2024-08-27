@@ -1,36 +1,76 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        li a {
+            color: #333;
+            text-decoration: none;
+        }
+        li small {
+            color: #999;
+        }
+        .create-post {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            background: #337ab7;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="/blog">My Blog</a>
-                <a href="/create">Create post</a>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+<!--        <h1 style="margin-bottom: 20px;">Welcome to My Blog</h1>-->
+        <a href="/blog" class="create-post">Welcome to My Blog</a>
+        <a href="/blog/create" class="create-post">Create a new post</a>
 
-    <main>
+        <main>
+        {% block detail %}
+          <!-- Your content here -->
+        {% endblock %}
+        </main>
+        <main>
         {% block content %}
           <!-- Your content here -->
         {% endblock %}
-    </main>
+        </main>
+        <main>
+        {% block create %}
+          <!-- Your content here -->
+        {% endblock %}
+        </main>
 
-    <footer>
-        <div class="container">
-            <p class="copyright">&copy; 2023 My Blog. Все права защищены.</p>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
