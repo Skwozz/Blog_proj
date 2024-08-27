@@ -17,7 +17,7 @@ def post_create(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('post_list')
+            return redirect('blog')
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', { 'form': form })
