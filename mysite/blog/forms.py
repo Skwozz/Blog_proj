@@ -8,14 +8,13 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'content']
 
 
-
-class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField()
-
-    class Meta:
-        model = get_user_model()  # Используем кастомную модель пользователя, если она есть
-        fields = ['username', 'email', 'password1', 'password2']
-
-class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label="Username")
-    password = forms.CharField(widget=forms.PasswordInput)
+# class UserRegisterForm(UserCreationForm):
+#     email = forms.EmailField()
+#
+#     class Meta:
+#         model = get_user_model()  # Используем кастомную модель пользователя, если она есть
+#         fields = ['username', 'email', 'password1', 'password2']
+#
+# class UserLoginForm(AuthenticationForm):
+#     username = forms.CharField(label="Username")
+#     password = forms.CharField(widget=forms.PasswordInput)
