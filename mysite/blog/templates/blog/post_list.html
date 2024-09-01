@@ -6,7 +6,7 @@
             {% for post in posts %}
             <div class="post">
                 <h2 class="post-title">{{ post.title }}</h2>
-                <p class="post-excerpt">{{ post.content }}</p>
+                <p class="post-excerpt">{{ post.content|truncatewords:50 }}</p>
                 <a href="{% url 'post_detail' post.id %}" class="read-more">Read More</a>
             </div>
             {% endfor %}

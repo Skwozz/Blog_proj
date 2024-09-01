@@ -11,5 +11,5 @@ class Post(models.Model):
         return self.title
 
 
-class CustomUser(AbstractUser):
-    pass
+# class CustomUser(AbstractUser):
+#     ...
