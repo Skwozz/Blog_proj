@@ -13,18 +13,44 @@
             <nav>
                 <a href="{% url 'create' %}" class="btn">Новый пост</a>
             </nav>
+
+              {% if user.is_authenticated %}
+                 <nav>
+                <a class="btn" href="{% url 'profile' %}">Профиль</a>
+                <a class="btn" href="{% url 'logout' %}">Выход</a>
+                 </nav>
+              {% else %}
             <nav>
-                <a href="{% url 'create' %}" class="btn">Login</a>
-                <a href="{% url 'create' %}" class="btn">Register</a>
+                 <a href="{% url 'login' %}" class="btn" >Login</a>
+                <a href="{% url 'register' %}" class="btn">Register</a>
             </nav>
+              {% endif %}
+
+
+
         </div>
     </header>
 
 <body>
-{% block content %}
+{% if messages %}
+        	{% for message in messages %}
+          	<div class="alert alert-{{ message.tags }}">
+            	{{ message }}
+          	</div>
+        	{% endfor %}
+{% endif %}
+{% block registration%}
 {% endblock %}
-{% block create %}
+{% block detail%}
 {% endblock %}
-{% block detail %}
+{% block content%}
+{% endblock %}
+{% block create%}
+{% endblock %}
+{% block login%}
+{% endblock %}
+{% block logout%}
+{% endblock %}
+{% block profile %}
 {% endblock %}
 </body>
